@@ -1,0 +1,410 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donation</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+    <body>
+        <!-- php start -->  
+
+<!-- php end -->
+        <div class="fullConatiner banner" id="homeSection">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <img src="images/L5.png" alt="logo" />
+                    </div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#homeSection">Home</a>
+                            </li>
+                            <li>
+                                <a href="#aboutSection">About US</a>
+                            </li>
+                            <li>
+                                <a href="#programsSection">Programs</a>
+                            </li>
+                            <li>
+                                <a href="#educationSection">Education</a>
+                            </li>
+                            <li>
+                                <a href="#gallerySection">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="#popup" id="login">Join Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- header end here -->
+
+            <div class="container">
+                <h1>Together We can <span>Save Hunger</span></h1>
+                <p>Annadann Foundation, an NGO with the objective to provide food for the economically weaker sections of our society, is an NGO in India directly benefitting over 15,00,000 children and their families every year, through more than 400 live welfare projects on healthcare, livelihood , malnutrition in over 2000 remote villages and slums across 25 states of India.</p>
+                <button>
+                    Start with a little
+                </button>
+    
+            </div>
+            
+        </div>
+        <!-- Home Section end-->
+        <section class="fullConatiner" id="aboutSection">
+            <div class="container">
+                <h2 class="sectionTitle"> About Us</h2>
+                <p>
+                    Annadana is a Club in NMAMIT which manily focuses on donating extra food and ration to the near by NGOs,
+                    Old age homes etc in Karkala
+                </p>
+                <div class="cards">
+                    <div class="donationBox">
+                        <div class="title">Give Donation</div>
+                        <p>
+                            Giving little can help a lot.
+                        </p>
+                        <button id="rzp-button1">
+                            Donate Now
+                        </button>
+                    </div>
+                    <!-- Donation box end -->
+
+
+                    <div class="volunteerBox">
+                        <div class="title">Become a Volunteer</div>
+                        <p>
+                            Volunteering is not a choice, it's a responsibility
+                        </p>
+                        <button onclick="window.location.href='#popup'">
+                            Become Now
+                        </button>
+                    </div>
+                    <!-- Volunteer Box end -->
+
+                    <div class="donateFood">
+                        <div class="title">Donate Food</div>
+                        <p>
+                            Give what you can
+                        </p>
+                        <button onclick="window.location.href='#programsSection'">
+                            Donate Now
+                        </button>
+                    </div>
+                    <!-- Donate Food Box end -->
+
+                </div>
+            </div>
+        </section>
+
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+        var options = {
+            "key": "rzp_test_Pz2Pg9vFCDMXAn", // Enter the Key ID generated from the Dashboard
+            "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "R.R Corp",
+            "description": "Donation",
+            "image": "images/l2.jpg",
+            //"account_id": "acc_Ef7ArAsdU5t0XL",
+            //"order_id": "order_DBJOWzybf0sJbb", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response){
+                alert(response.razorpay_payment_id);
+                alert(response.razorpay_order_id);
+                alert(response.razorpay_signature)
+            },
+            "prefill": {
+                "name": "R.R Annadhana",
+                "email": "R.R@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+                alert(response.error.code);
+                alert(response.error.description);
+                alert(response.error.source);
+                alert(response.error.step);
+                alert(response.error.reason);
+                alert(response.error.metadata.order_id);
+                alert(response.error.metadata.payment_id);
+        });
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+        </script>
+
+        <!--.aboutSection end here -->
+
+
+        <section class="programs" id="programsSection">
+            
+            <div class="container">
+                <h2 class="sectionTitle">
+                    Programs
+                </h2>
+                <div class="boxContainer">
+                    <div class="box">
+                        <div class="cardImage"></div>
+                            <div class="programTitle">Jeevan Welfare Trust</div>
+                            <div class="donationCount">
+                                Donation Goal : <span>Rs 50000</span>
+                            </div>
+                            <form action="ContactFrom_v1/sendmessage.php" method="post">
+                                <button type="submit">Donate Now</button>
+                            </form>
+                            
+                    </div>
+                    <!-- box end -->
+
+                    <div class="box">
+                        <div class="cardImage"></div>
+                            <div class="programTitle">Rotary Bala Bhavan</div>
+                            <div class="donationCount">
+                                Donation Goal : <span>Rs 50000</span>
+                            </div>
+                            <button>Donate Now</button>
+                    </div>
+                    <!-- box end -->
+
+                    <div class="box">
+                        <div class="cardImage"></div>
+                            <div class="programTitle">Lions Bhavan karkala</div>
+                            <div class="donationCount">
+                                Donation Goal : <span>Rs 50000</span>
+                            </div>
+                            <button>Donate Now</button>
+                    </div>
+                    <!-- box end -->
+
+                    <div class="box">
+                        <div class="cardImage"></div>
+                            <div class="programTitle">Humanity Trust</div>
+                            <div class="donationCount">
+                                Donation Goal : <span>Rs 50000</span>
+                            </div>
+                            <button>Donate Now</button>
+                    </div>
+                    <!-- box end -->
+
+
+                </div>
+                <!-- boxContainer end -->
+            </div>
+        </section>
+        <!-- programsection end here -->
+
+
+        <section class="education" id="educationSection">
+            <video autoplay muted loop class="videoPlayer">
+                <source src="video/childrens.mp4" type="video/mp4"/>
+            </video>
+            <div class="container">
+                <div class="sectionTitle">Education</div>
+
+                <div class="educationContainer">
+                    <h3>
+                        Education Is Essential for <br>
+                        <strong>Better Future</strong>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, sed perferendis eos excepturi in voluptates cumque optio sit explicabo error assumenda modi deserunt recusandae, nobis rem repellendus unde natus molestias?
+                    </p>
+                    <button>Explore More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- educationSection end here -->
+
+        <section class="gallery" id="gallerySection">
+            <div class="container">
+                <div class="sectionTitle"> Gallery</div>
+                <div class="galleryContainer">
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/1.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/2.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/3.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/4.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/5.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/6.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/7.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                    <div class="item">
+                        <span class="title">Image Title</span>
+                        <img src="images/gallery/8.jpg" alt="">
+                    </div>
+                    <!-- item -->
+                </div>
+            </div>
+        </section>
+        <!-- Gallery Section end here -->
+        <section class="join" id="joinSection">
+            <div class="container">
+                <div class="joinTitle">
+                    If you can't feed a hundred people, <span>then feed just one </span>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad quia obcaecati dolore minima doloribus beatae commodi facere, tenetur, impedit ab maiores possimus accusamus rerum ut modi, iure vitae eius. Asperiores.
+                </p>
+                <button class="joinNow">JOIN US</button>
+            </div>
+        </section>
+
+            <!-- sign in sign up form -->
+            <div id="popup" class="overlay">
+                <div class="wrapper">
+                    <a href="#" class="close">&times;</a>
+                    <div class="column details">
+                        <div class="signin">
+                        <form action="login.php" method="post">
+                            <h1>Sign in</h1>
+                            <input type="email" placeholder="Email" name="emaill" required>
+                            <input type="password" placeholder="Password" name="passwordd" required>
+                            <button class="form-submit" type="submit" name="loggin">Sign In</button>
+                        </form>
+                            <span class="span1">You dont have an account yet?? <button id="signup">Create it now </button></span>
+                        </div>
+            
+                        <div class="signup">
+                            <h1>Sign Up</h1>
+                            <form method="POST" action="signin.php" >
+                                <input type="name" placeholder="Full Name" name="fullname" required>
+                                <input type="email" placeholder="Email" name="email" required>
+                                <input type="password" placeholder="Password" name="password" required>
+                                <button class="form-submit" type="submit" name="register">Sign Up</button>
+                            </form>
+                            <span class="span1">Already have an account? <button id="signin">Signin </button></span>
+                        </div>
+            
+                    </div>
+            
+                    <div class="column content">
+                        <div class="signin">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please log in with your personal info </p>
+                        </div>
+            
+                        <div class="signup">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start journey with us</details></p>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            
+            <script>
+                $('.signup').hide();
+            
+                $('#signin, #signup').on(
+                    'click',
+                    function(){
+                        $('.signin,.signup').toggle()
+                    }
+                )
+            </script>
+
+        <!-- sign in sign up form -->
+
+        <!-- join section end here -->
+
+        <footer>
+            <div class="container">
+                <div class="newsLetterContainer">
+                    <img src="./images/L5.png" alt="">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quae est aliquam. Molestiae nisi mollitia consequuntur sequi laboriosam magnam
+                    </p>
+                    <input type="text" placeholder="enter your email address">
+                </div>
+                <!-- newsLetterContainer -->
+
+
+                <div class="linksContainer">
+                    <div class="title">Useful Links</div>
+                    <ul>
+                        <li>
+                            <a href="#homeSection">Home</a>
+                        </li>
+                        <li>
+                            <a href="#aboutSection">About US</a>
+                        </li>
+                        <li>
+                            <a href="#programsSection">Programs</a>
+                        </li>
+                        <li>
+                            <a href="#educationSection">Education</a>
+                        </li>
+                        <li>
+                            <a href="#gallerySection">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#joinSection">Join Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- link container -->
+
+
+                <div class="connectContainer">
+                    <div class="title">
+                        Connect with us
+                    </div>
+                    <p>
+                        Annadhana Club , NMAMIT , Nitte
+                    </p>
+                    <p>
+                        info@ngo.com
+                    </p>
+                    <p>
+                        (+91-1234567890)
+                    </p>
+                </div>
+                <!-- connectContainer -->
+
+            </div>
+        </footer>
+    </body>
+</html>
